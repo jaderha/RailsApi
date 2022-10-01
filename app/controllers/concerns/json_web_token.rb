@@ -1,5 +1,6 @@
 require "jwt"
 
+# JsonWebToken class
 module JsonWebToken
     extend ActiveSupport::Concern
     
@@ -14,4 +15,5 @@ module JsonWebToken
         decoded = JWT.decode(token, SECRET_KEY)[0]
         HashWithIndifferentAccess.new decoded
     end
+    
 end
