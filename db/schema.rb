@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_01_172625) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_01_174544) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "category_id"
+    t.integer "author_id"
+    t.index ["author_id"], name: "index_articles_on_author_id"
     t.index ["category_id"], name: "index_articles_on_category_id"
   end
 
@@ -34,4 +36,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_01_172625) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "articles", "users", column: "author_id"
 end
