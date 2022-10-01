@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  
+  # Auth
+  post 'authentication/login', to: 'authentication#login'
+
   resources :users
   resources :categories
   resources :articles
